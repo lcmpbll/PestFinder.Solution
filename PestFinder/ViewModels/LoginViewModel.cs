@@ -1,1 +1,8 @@
-name
+namespace PestFinder.ViewModels
+{
+  public class LoginViewModel
+  {
+    public string Email { get; set; }
+    public string Password { get; set; }
+  }
+}
