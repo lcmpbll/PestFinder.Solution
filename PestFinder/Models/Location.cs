@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace PestFinder.Models
 {
   public class Location
