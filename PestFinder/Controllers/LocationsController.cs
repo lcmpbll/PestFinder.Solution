@@ -18,7 +18,7 @@ namespace PestFinder.Controllers
 
     public ActionResult Index()
     {
-      List<Locations> model = _db.Locations.ToList();
+      List<Location> model = _db.Locations.ToList();
       return View(model);
     }
   }

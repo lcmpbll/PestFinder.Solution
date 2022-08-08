@@ -18,8 +18,8 @@ namespace PestFinder.Controllers
 
     public ActionResult Index()
     {
-      List<Pest> model = _db.Pests.Include(pest => pest.Location).ToList();
-      return View(model);
+      // List<Pest> model = _db.Pests.Include(pest => pest.Location).ToList();
+      return View();
     }
   }
 }
