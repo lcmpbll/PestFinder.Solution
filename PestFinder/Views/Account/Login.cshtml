@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PestFinder.ViewModels
+
+@models LoginViewModel
+
+<h2>Login in with your account</h2>
+<hr />
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(m => m.Email)
+  @Html.PasswordFor(m => m.Password)
+
+<input type="submit" value = "Log in" class= "btn btn-default" />
+}
