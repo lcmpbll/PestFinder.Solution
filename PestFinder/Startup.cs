@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PestFinder.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace PestFinder
 {
@@ -25,14 +26,20 @@ namespace PestFinder
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<BestRestaurantsContext>(options => options
+        .AddDbContext<PestFinderContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
+
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<PestFinderContext>()
+        .AddDefaultTokenProviders();  
     }
 
     public void Configure(IApplicationBuilder app)
     {
       app.UseDeveloperExceptionPage();
+      app.UseAuthentication();
       app.UseRouting();
+      app.UseAuthorization();
 
       app.UseEndpoints(routes =>
       {
