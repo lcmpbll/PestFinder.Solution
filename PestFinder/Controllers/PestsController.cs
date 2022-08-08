@@ -7,18 +7,18 @@ using System.Linq;
 
 namespace PestFinder.Controllers
 {
-  public class ClassOneController : Controller
+  public class PestsController : Controller
   {
     private readonly PestFinderContext _db;
 
-    public ClassOneController(PestFinderContext db)
+    public PestsController(PestFinderContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      List<ClassOne> model = _db.ClassOnes.Include(classOne => classOne.ClassTwo).ToList();
+      List<Pest> model = _db.Pests.Include(pest => pest.Location).ToList();
       return View(model);
     }
   }

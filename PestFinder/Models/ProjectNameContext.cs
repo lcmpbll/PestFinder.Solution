@@ -4,9 +4,9 @@ namespace PestFinder.Models
 {
   public class PestFinderContext : DbContext
   {
-    public DbSet<CLassOne> ClassOne { get; set; }
-    public DbSet<ClassTwo> ClassTwo { get; set; }
-    public DbSet<ClassOneClassTwo> ClassOneClassTwo { get;  set; }
+    public DbSet<CLassOne> Pest { get; set; }
+    public DbSet<Location> Location { get; set; }
+    public DbSet<PestLocation> PestLocation { get;  set; }
 
     public PestFinderContext(DbContextOptions options) : base(options) { }
 
