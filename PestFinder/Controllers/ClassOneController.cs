@@ -1,17 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
-using ProjectName.Models;
+using PestFinder.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProjectName.Controllers
+namespace PestFinder.Controllers
 {
   public class ClassOneController : Controller
   {
-    private readonly ProjectNameContext _db;
+    private readonly PestFinderContext _db;
 
-    public ClassOneController(ProjectNameContext db)
+    public ClassOneController(PestFinderContext db)
     {
       _db = db;
     }

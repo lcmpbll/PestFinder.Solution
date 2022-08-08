@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ProjectName.controller
+namespace PestFinder.controller
 {
   public class HomeController : Controller
   {

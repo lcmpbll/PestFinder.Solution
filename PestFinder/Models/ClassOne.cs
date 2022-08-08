@@ -1,4 +1,4 @@
-namespace ProjectName.Models
+namespace PestFinder.Models
 {
   public class ClassOne
   {
