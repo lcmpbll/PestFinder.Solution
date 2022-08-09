@@ -1,5 +1,5 @@
 @{
-  Layout = "_Layout";
+  Layout = "_Layout2";
 }
 
 @using PestFinder.ViewModels
@@ -10,11 +10,18 @@
 <hr />
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(m => m.Email)
-  @Html.TextBoxFor(m => m.Email)
-  
-  @Html.LabelFor(m => m.Password)
-  @Html.PasswordFor(m => m.Password)
+  <div class="row">
+  <span class="col-4">
+  <strong>
+  <p>@Html.LabelFor(m => m.Email)</p>
+  <p>@Html.LabelFor(m => m.Password)</p>
+  </strong>
+  </span>
 
-  <input type="submit" value = "Log in" class= "btn btn-default" />
+  <span class="col-6">
+  <p>@Html.TextBoxFor(m => m.Email)</p>
+  <p>@Html.PasswordFor(m => m.Password)</p>
+  </span>
+  </div>
+  <button type="submit" class="btn btn-default">Log In</button>
 }
