@@ -25,6 +25,8 @@ namespace PestFinder.Controllers
 
     public async Task<ActionResult> Index()
     {
+      ViewBag.Title = "Pests";
+      ViewBag.Subtitle = "All Pests";
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       var userPests = _db.Pests.Where(entry => entry.User.Id == currentUser.Id).ToList();
@@ -34,6 +36,8 @@ namespace PestFinder.Controllers
     
     public ActionResult Create()
     {
+      ViewBag.Title = "Pests";
+      ViewBag.Subtitle = "Log New Pest";
       ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "Name");
       return View();
     }
@@ -54,16 +58,20 @@ namespace PestFinder.Controllers
       return RedirectToAction("Index");
     }
 
-        public ActionResult Details(int id)
+    public ActionResult Details(int id)
     {
       var thisPest = _db.Pests
         .FirstOrDefault(pest => pest.PestId == id);
+      ViewBag.Title = "Pests";
+      ViewBag.Subtitle = "Details for " + thisPest.Type;  
       return View(thisPest);
     }
 
     public ActionResult Edit(int id)
     {
       var thisPest = _db.Pests.FirstOrDefault(pest => pest.PestId == id);
+      ViewBag.Title = "Pests";
+      ViewBag.Subtitle = "Edit " + thisPest.Type;
       ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "Name");
       return View(thisPest);
     }
@@ -83,6 +91,8 @@ namespace PestFinder.Controllers
     public ActionResult Delete(int id)
     {
       var thisPest = _db.Pests.FirstOrDefault(pest => pest.PestId == id);
+      ViewBag.Title = "Pests";
+      ViewBag.Subtitle = "Delete " + thisPest.Type;
       return View(thisPest);
     }
 
@@ -98,6 +108,8 @@ namespace PestFinder.Controllers
     public ActionResult AddLocation(int id)
     {
       var thisPest = _db.Pests.FirstOrDefault(pest => pest.PestId == id);
+      ViewBag.Title = "Pests";
+      ViewBag.Subtitle = "Add Location to " + thisPest.Type;
       ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "Name");
       return View(thisPest);
     }
