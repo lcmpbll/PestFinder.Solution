@@ -105,12 +105,15 @@ namespace PestFinder.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddLocation(int id)
+    public async Task<ActionResult> AddLocation(int id)
     {
       var thisPest = _db.Pests.FirstOrDefault(pest => pest.PestId == id);
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userLocations = _db.Locations.Where(entry => entry.User.Id == currentUser.Id).ToList();      
       ViewBag.Title = "Pests";
       ViewBag.Subtitle = "Add Location to " + thisPest.Type;
-      ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "Name");
+      ViewBag.LocationId = new SelectList(userLocations, "LocationId", "Name");
       return View(thisPest);
     }
 

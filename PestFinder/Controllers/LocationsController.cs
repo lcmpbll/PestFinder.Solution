@@ -83,12 +83,15 @@ namespace PestFinder.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddPest(int id)
+    public async Task<ActionResult> AddPest(int id)
     {
       ViewBag.Title = "Location";
       ViewBag.Subtitle = "Add a Pest";
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userPests = _db.Pests.Where(entry => entry.User.Id == currentUser.Id).ToList();
       var thisLocation = _db.Locations.FirstOrDefault(location => location.LocationId == id);
-      ViewBag.PestId = new SelectList(_db.Pests, "PestId", "DateType");
+      ViewBag.PestId = new SelectList(userPests, "PestId", "DateType");
       return View(thisLocation);
     }
   
@@ -97,6 +100,7 @@ namespace PestFinder.Controllers
     {
       if (PestId != 0)
       {
+      
         _db.PestLocation.Add(new PestLocation() {PestId = PestId, LocationId = location.LocationId });
         _db.SaveChanges();
       }
