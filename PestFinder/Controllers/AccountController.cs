@@ -28,6 +28,8 @@ namespace PestFinder.Controllers
     
     public IActionResult Register()
     {
+      ViewBag.Title = "Pest Finder";
+      ViewBag.Subtitle = "Create a new Account";
       return View();
     }
     
@@ -48,6 +50,7 @@ namespace PestFinder.Controllers
 
     public ActionResult Login ()
     {
+      ViewBag.Title = "Pest Finder";
       return View();
     }
 
