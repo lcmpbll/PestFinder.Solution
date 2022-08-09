@@ -21,6 +21,8 @@ namespace PestFinder.Controllers
     
     public ActionResult Index()
     {
+      ViewBag.Title = "Pest Finder";
+      ViewBag.Subtitle = "Account Management";
       return View();
     }
     
