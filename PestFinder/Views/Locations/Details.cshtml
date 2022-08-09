@@ -4,16 +4,8 @@
 
 @model PestFinder.Models.Location
 
-<div class="jumbotron text-center">
-  <h1>Location: @Model.Name</h1>
-  <h2>Details</h2>
-</div>
-<nav class="navbar sticky-top navbar-expand-lg">
-  <button class="nav-item">@Html.ActionLink("Home", "Index", "Home")</button>
-  <button class="nav-item">@Html.ActionLink("View locations", "Index")</button>
-  <button class="nav-item">@Html.ActionLink("Add Pest Sighting", "Index", new { id = Model.LocationId})</button>
-</nav>
-<div class="container">
+  <button class="nav-item">@Html.ActionLink("Add Pest Sighting", "AddPest", new { id = Model.LocationId })</button>
+
   @if(@Model.JoinEntities.Count == 0)
   {
     <h3>This location does not currently have pest sightings</h3>
@@ -23,9 +15,10 @@
     <h1>Pests in the @Model.Name</h1>
     <table class="table">
       <tr>
-        <th>Location</th>
+        
         <th>Pest Type</th>
         <th>Pest Number</th>
+        <th>Date/Time Sighted</th>
         <th>Action Taken</th>
         <th>Pest Alivedness</th>
       
