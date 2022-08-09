@@ -1,3 +1,25 @@
 @{
   Layout ="_Layout";
 }
+
+@using PestFinder.Models;
+@model IEnumerable<PestFinder.Models.Pest>
+
+<h1>Pests recorded by @User.Identity.Name</h1>
+
+@if (Model.Any())
+{
+  <ul>
+  @foreach (Pest pest in Model)
+  {
+    <li>@Html.ActionLink($"{pest.Description}", "Details", new { id = pest.PestId }) </li>
+  } 
+  </ul>
+}
+else
+{
+  <h3>No Pests have been found yet!</h3>
+}
+
+<p>@Html.ActionLink("Add new pest", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
