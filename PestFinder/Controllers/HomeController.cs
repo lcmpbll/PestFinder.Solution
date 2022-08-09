@@ -7,6 +7,8 @@ namespace PestFinder.controller
     [HttpGet("/")]
     public ActionResult Index()
     {
+      ViewBag.Title = "Pest Finder";
+      ViewBag.Subtitle = "Home";
       return View();
     }
   }
