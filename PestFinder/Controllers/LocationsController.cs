@@ -25,6 +25,8 @@ namespace PestFinder.Controllers
 
     public async Task<ActionResult> Index()
     {
+      ViewBag.Title = "Location";
+      ViewBag.Subtitle = "All Locations";
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       var userLocations = _db.Locations.Where(entry => entry.User.Id == currentUser.Id).ToList();
@@ -33,6 +35,8 @@ namespace PestFinder.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.Title = "Locations";
+      ViewBag.Subtitle = "Add New Location";
       return View();
     }
 
@@ -54,6 +58,8 @@ namespace PestFinder.Controllers
     
     public ActionResult Details(int id)
     {
+      ViewBag.Title = "Locations";
+      ViewBag.Subtitle = "Details";
       var thisLocation = _db.Locations
       .Include(location => location.JoinEntities)
       .ThenInclude(join => join.Pest)
@@ -63,6 +69,8 @@ namespace PestFinder.Controllers
 
     public ActionResult Edit(int id)
     {
+      ViewBag.Title = "Location";
+      ViewBag.Subtitle = "Modify this Location";
       var thisLocation = _db.Locations.FirstOrDefault(location => location.LocationId == id);
       return View(thisLocation);
     }
@@ -77,6 +85,8 @@ namespace PestFinder.Controllers
 
     public ActionResult AddPest(int id)
     {
+      ViewBag.Title = "Location";
+      ViewBag.Subtitle = "Add a Pest";
       var thisLocation = _db.Locations.FirstOrDefault(location => location.LocationId == id);
       ViewBag.PestId = new SelectList(_db.Pests, "PestId", "DateType");
       return View(thisLocation);
@@ -95,6 +105,8 @@ namespace PestFinder.Controllers
     
     public ActionResult Delete(int id)
     {
+      ViewBag.Title = "Location";
+      ViewBag.Subtitle = "Get rid of this location?";
       var thisLocation = _db.Locations.FirstOrDefault(location => location.LocationId == id);
       return View(thisLocation);
     }
