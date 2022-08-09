@@ -33,7 +33,7 @@ namespace PestFinder.Controllers
 
     public ActionResult Create()
     {
-      
+      return View();
     }
 
     [HttpPost]
@@ -78,7 +78,7 @@ namespace PestFinder.Controllers
     public ActionResult AddPest(int id)
     {
       var thisLocation = _db.Locations.FirstOrDefault(location => location.LocationId == id);
-      ViewBag.PestId = new SelectList(_db.Pests, "PestId", "Sighting", "Type");
+      ViewBag.PestId = new SelectList(_db.Pests, "PestId", "DateType");
       return View(thisLocation);
     }
   
