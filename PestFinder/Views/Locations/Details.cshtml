@@ -1,0 +1,61 @@
+@{ 
+  Layout = "_Layout";
+}
+
+@model PestFinder.Models.Location
+
+<div class="jumbotron text-center">
+  <h1>Location: @Model.Name</h1>
+  <h2>Details</h2>
+</div>
+<nav class="navbar sticky-top navbar-expand-lg">
+  <button class="nav-item">@Html.ActionLink("Home", "Index", "Home")</button>
+  <button class="nav-item">@Html.ActionLink("View locations", "Index")</button>
+  <button class="nav-item">@Html.ActionLink("Add Pest Sighting", "Index", new { id = Model.LocationId})</button>
+</nav>
+<div class="container">
+  @if(@Model.JoinEntities.Count == 0)
+  {
+    <h3>This location does not currently have pest sightings</h3>
+  }
+  else
+  {
+    <h1>Pests in the @Model.Name</h1>
+    <table class="table">
+      <tr>
+        <th>Location</th>
+        <th>Pest Type</th>
+        <th>Pest Number</th>
+        <th>Action Taken</th>
+        <th>Pest Alivedness</th>
+      
+      </tr>
+      @foreach (var join in Model.JoinEntities)
+      {
+        <tr>
+            <td>
+              @Html.ActionLink(@join.Pest.Type, "Details", "Pest", new { id = join.Pest.PestId })
+            </td>
+            <td>
+              @join.Pest.Quantity
+            </td>
+            <td>
+              @join.Pest.Sighting
+            </td>
+            <td>
+              @join.Pest.Action
+            </td>
+            <td>
+              @join.Pest.Alive
+            </td>
+        </tr>
+      }
+    </table>
+    
+    <h2>Location Activity:</h2>
+      <p>@Model.PestRating</p>
+    <h2>Action Plan</h2>
+      <p>@Model.ActionPlan</p>
+        
+  }
+</div>

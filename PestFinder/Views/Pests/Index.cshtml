@@ -12,7 +12,7 @@
   <ul>
   @foreach (Pest pest in Model)
   {
-    <li>@Html.ActionLink($"{pest.Description}", "Details", new { id = pest.PestId }) </li>
+    <li>@Html.ActionLink($"{pest.Type}", "Details", new { id = pest.PestId }) </li>
   } 
   </ul>
 }

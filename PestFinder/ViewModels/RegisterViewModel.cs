@@ -1,4 +1,4 @@
-using System.CompnentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace PestFinder.ViewModels
 {

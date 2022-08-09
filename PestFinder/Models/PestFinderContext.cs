@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PestFinder.Models
 {
-  public class PestFinderContext : DbContext
+  public class PestFinderContext : IdentityDbContext<ApplicationUser>
   {
     public DbSet<Pest> Pests { get; set; }
     public DbSet<Location> Locations { get; set; }

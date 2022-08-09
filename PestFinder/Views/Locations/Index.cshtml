@@ -1,3 +1,26 @@
 @{
   Layout ="_Layout";
 }
+
+@using PestFinder.Models;
+@model IEnumerable<PestFinder.Models.Location>
+
+<h1>Locations for @User.Identity.Name</h1>
+
+@if (Model.Any())
+{
+  <ul>
+  @foreach (Location location in Model)
+  {
+    <li>@Html.ActionLink($"{location.Name}", "Details", new { id = location.LocationId})</li>
+  }
+  </ul>
+}
+else 
+{
+  <h3>No locations have been added yet</h3>
+}
+
+<p>@Html.ActionLink("Add new location", "Create")</p>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

@@ -1,13 +1,17 @@
 @{
-  Layout ="_Layout";
+  Layout = "_Layout";
 }
 
 @model PestFinder.Models.Pest
 
-<h4>Log a new pest</h4>
+<h2>Edit</h2>
+
+<h4>Edit this pest: @Html.DisplayFor(model => model.Type)</h4>
 
 @using (Html.BeginForm())
 {
+  @Html.HiddenFor(model => model.PestId)
+
   @Html.LabelFor(model => model.Type)
   @Html.TextBoxFor(model => model.Type)
 
@@ -24,4 +28,12 @@
 
   @Html.LabelFor(model => model.Action)
   @Html.TextBoxFor(model => model.Action)
+
+  @Html.Label("Select Location")
+  @Html.DropDownList("LocationId")
+
+  <input type="submit" value="Save" />
 }
+
+<a href='@Url.Action("Index")'><button>Back to List</button></a>
+<a href='@Url.Action("Index", "Home")'><button>Home</button></a>

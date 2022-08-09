@@ -46,7 +46,7 @@ namespace PestFinder.Controllers
 
     public ActionResult Login ()
     {
-      return View():
+      return View();
     }
 
     [HttpPost]
