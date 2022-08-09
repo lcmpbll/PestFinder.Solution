@@ -1,0 +1,18 @@
+/* navbar {
+  float: center;
+} */
+
+button { 
+  padding: 3px;
+  border: transparent 3px;
+  margin: 3px;
+  
+}
+
+.login {
+  position: absolute;
+  margin: 4px;
+  top: 0;
+  right: 0;
+  
+}
