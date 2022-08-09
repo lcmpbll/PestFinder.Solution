@@ -4,26 +4,22 @@
 
 @model PestFinder.Models.Location
 
-<div class="jumbotron text-center">
-  <h1>Set up new location</h1>
-</div>
-<nav class="navbar sticky-top navbar-expand-lg">
-  <button class="nav-item">@Html.ActionLink("Home", "Index", "Home")</button>
-  <button class="nav-item">@Html.ActionLink("View locations", "Index", "Locations")</button>
-</nav>
 
-<div class="container">
   @using (Html.BeginForm())
   {
-    @Html.Label("Location Name")
-    @Html.TextBoxFor(model => model.Name)
-    
-    @Html.Label("Pest Rating")
-    @Html.TextBoxFor(model => model.PestRating)
-    
-    @Html.Label("Action Plan")
-    @Html.TextBoxFor(model => model.ActionPlan)
-    
+    <div class="row">
+    <div class="col-2">
+      @Html.Label("Location Name")
+      @Html.Label("Pest Rating")
+      @Html.Label("Action Plan")
+    </div>
+
+    <div class="col-6">
+      @Html.TextBoxFor(model => model.Name)
+      @Html.TextBoxFor(model => model.PestRating)
+      @Html.TextBoxFor(model => model.ActionPlan)
+    </div>
+    </div>
+
     <button type="submit">Create Location</button>
   }
-</div>
