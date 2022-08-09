@@ -11,17 +11,33 @@
 @if(Model.JoinEntities.Any())
 {
   <h4>Locations for this pest:</h4>
-  <ul>
+  <table class="table">
+    <tr>
+      <th>Type</th>
+      <th>Date/Time of Sighting</th>
+      <th>Number</th>
+      <th>Aliveness</th>
+      <th>Action</th>
+      <th>Location</th>
+    </tr>
+
   @foreach(var join in Model.JoinEntities)
   {
-    <li>@join.Location.Name</li>
-    @using (Html.BeginForm("DeleteLocation", "Pests"))
-    {
-      @Html.Hidden("joinId", @join.PestLocationId)
-      <input type="submit" value="delete" />
+    <tr>
+      <td>@Model.Type</td>
+      <td>@Model.Sighting</td>
+      <td>@Model.Quantity</td>
+      <td>@Model.Alive</td>
+      <td>@Model.Action</td>
+      <td>@join.Location.Name</td>
+      @using (Html.BeginForm("DeleteLocation", "Pests"))
+      {
+        @Html.Hidden("joinId", @join.PestLocationId)
+        <input type="submit" value="delete" />
+      }
+    </tr>
     }
-    }
-  </ul>
+   </table>
 }
 else
 {
