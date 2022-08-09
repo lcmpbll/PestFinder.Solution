@@ -21,5 +21,5 @@ else
   <h3>No Pests have been found yet!</h3>
 }
 
-<p>@Html.ActionLink("Add new pest", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<a href='@Url.Action("Create")'><button>Add new pest</button></a>
+<a href='@Url.Action("Index", "Home")'><button>Home</button></a>
