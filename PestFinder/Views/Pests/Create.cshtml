@@ -8,22 +8,23 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Type)
-  @Html.TextBoxFor(model => model.Type)
+  <div class="row align-items-stretch">
+  <div class="col-2">
+    <p>@Html.LabelFor(model => model.Type)</p>
+    <p>@Html.LabelFor(model => model.Sighting)</p>
+    <p>@Html.LabelFor(model => model.Quantity)</p>
+    <p>@Html.LabelFor(model => model.Alive)</p>
+    <p>@Html.LabelFor(model => model.Action)</p>
+  </div>
 
-  @Html.LabelFor(model => model.Sighting)
-  @Html.EditorFor(model => model.Sighting)
-  // , new { type="date" }
+  <div class="col-6">
+    <p>@Html.TextBoxFor(model => model.Type)</p>
+    <p>@Html.EditorFor(model => model.Sighting)</p>
+    <p>@Html.EditorFor(model => model.Quantity)</p>
+    <p>@Html.CheckBoxFor(model => model.Alive)</p>
+    <p>@Html.TextBoxFor(model => model.Action)</p>
+  </div>  
+  </div>
 
-  @Html.LabelFor(model => model.Quantity)
-  @Html.EditorFor(model => model.Quantity)
-  // , min:0
-
-  @Html.LabelFor(model => model.Alive)
-  @Html.CheckBoxFor(model => model.Alive)
-
-  @Html.LabelFor(model => model.Action)
-  @Html.TextBoxFor(model => model.Action)
-  
   <button type="submit" class="btn btn-default">Add pest</button>
 }
