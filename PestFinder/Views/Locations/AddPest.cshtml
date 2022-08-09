@@ -3,25 +3,14 @@
 }
 @model PestFinder.Models.Location
 
-<div class="jumbotron text-center">
-  <h1>Location: @Html.DisplayFor(model => model.Name)</h1>
-  <h2>Add pest sighting</h2>
-</div>
-<nav class="navbar sticky-top navbar-expand-lg">
-  <button class="nav-item">@Html.ActionLink("Home", "Index", "Home")</button>
-  <button class="nav-item">@Html.ActionLink("View locations", "Index", "Locations")</button>
-</nav>
-<br />
-<div class="container">
-  @using (Html.BeginForm())
-  {
-    @Html.HiddenFor(model => model.LocationId)
-    
-    @Html.Label("Add new pest sighting")
-    
-    @Html.DropDownList("PestId")
-    <br />
-    <button type="Save">Add Sighting to the 
-    @Html.DisplayFor(model => model.Name)</button>
-  }
-</div>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.LocationId)
+  
+  @Html.Label("Add new pest sighting")
+  
+  @Html.DropDownList("PestId")
+  <br />
+  <button class="btn btn-primary" type="Save">Add Sighting to the 
+  @Html.DisplayFor(model => model.Name)</button>
+}
