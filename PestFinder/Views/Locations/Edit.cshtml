@@ -1,0 +1,25 @@
+@{ 
+  Layout = "_Layout";
+}
+
+@model PestFinder.Models.Location
+
+
+  @using (Html.BeginForm())
+  {
+    <div class="row">
+    <div class="col-2">
+      @Html.Label("Location Name")
+      @Html.Label("Pest Rating")
+      @Html.Label("Action Plan")
+    </div>
+
+    <div class="col-6">
+      @Html.EditorFor(model => model.Name)
+      @Html.EditorFor(model => model.PestRating)
+      @Html.EditorFor(model => model.ActionPlan)
+    </div>
+    </div>
+
+    <button type="submit">Edit</button>
+  }
