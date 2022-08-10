@@ -7,17 +7,18 @@
 
   @using (Html.BeginForm())
   {
-    <div class="row">
+    @Html.HiddenFor(model => model.LocationId)
+    <div class="row align-items-stretch">
     <div class="col-2">
-      @Html.Label("Location Name")
-      @Html.Label("Pest Rating")
-      @Html.Label("Action Plan")
+      <p>@Html.Label("Location Name")</p>
+      <p>@Html.Label("Pest Rating")</p>
+      <p>@Html.Label("Action Plan")</p>
     </div>
 
     <div class="col-6">
-      @Html.EditorFor(model => model.Name)
-      @Html.EditorFor(model => model.PestRating)
-      @Html.EditorFor(model => model.ActionPlan)
+      <p>@Html.EditorFor(model => model.Name)</p>
+      <p>@Html.EditorFor(model => model.PestRating)</p>
+      <p>@Html.EditorFor(model => model.ActionPlan)</p>
     </div>
     </div>
 

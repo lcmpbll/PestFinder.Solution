@@ -4,7 +4,7 @@
 
 @model PestFinder.Models.Location
 
-  <button class="nav-item">@Html.ActionLink("Add Pest Sighting", "AddPest", new { id = Model.LocationId })</button>
+  
 
   @if(@Model.JoinEntities.Count == 0)
   {
@@ -53,3 +53,5 @@
   }
 
 <a href='@Url.Action("Delete", new { id = Model.LocationId })'><button>Delete Location</button></a>
+<a href='@Url.Action("Edit", new { id = Model.LocationId })'><button>Edit Location</button></a>
+<a href='@Url.Action("AddPest", new { id = Model.LocationId })'><button>Add Pest Sighting</button></a>
